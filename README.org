@@ -1,0 +1,23 @@
+#+title: Config
+
+My linux dotfiles.
+
+* Table of contents :TOC_3:
+- [[#about-the-project][About the project]]
+- [[#getting-started][Getting started]]
+- [[#usage][Usage]]
+- [[#license][License]]
+- [[#contact][Contact]]
+
+* About the project
+TBU
+* Getting started
+Instruction for setting up project locally.
+* Usage
+Examples of how project can be used.
+* License
+Distributed under the =0BSD= for more information go to =LICENSE= file.
+[[https://www.youtube.com/watch?v=5qacGULztuQ][TL;DR]]
+* Contact
+bragi.litlausson at proton mail
+Project link https:github.com/bragi.litlausson/config
