@@ -1,22 +1,135 @@
-#+title: Config
+#+title: Config [WIP]
 
 My linux dotfiles.
 
 * Table of contents :TOC_3:
 - [[#about-the-project][About the project]]
-- [[#getting-started][Getting started]]
-- [[#usage][Usage]]
+- [[#minor-configs][Minor Configs]]
+  - [[#profile][.profile]]
+    - [[#path][PATH]]
+    - [[#variables][Variables]]
+  - [[#bashrc][.bashrc]]
+    - [[#enable-vi-mode][Enable Vi mode]]
+    - [[#load-config-files][Load config files]]
+    - [[#enable-starship-prompt][Enable starship prompt]]
+  - [[#bash-config][bash config]]
+    - [[#git-aliasses][Git aliasses]]
+    - [[#pacman-aliasses][Pacman aliasses]]
+    - [[#application-aliasses][Application aliasses]]
+  - [[#starship][starship]]
+  - [[#gitconfig][.gitconfig]]
+- [[#major-configs][Major Configs]]
+  - [[#kitty-terminal-emulator][Kitty terminal emulator]]
+  - [[#picom][picom]]
+  - [[#xmonad-environment][XMonad environment]]
+    - [[#xmonad-window-manager][XMonad window manager]]
+    - [[#xmobar][XMobar]]
+  - [[#rofi][rofi]]
+  - [[#dunst][dunst]]
+  - [[#doom-emacs][DOOM Emacs]]
 - [[#license][License]]
 - [[#contact][Contact]]
 
 * About the project
-TBU
-* Getting started
-Instruction for setting up project locally.
-* Usage
-Examples of how project can be used.
+*THIS REPO IS CURRENTLY WORK IN PROGRESS.*
+My goal is to create literate config files for every config file.
+At the current stage, most of the README.org contain simple dumps of the dot files.
+
+
+Dot files are split into two categories.
+1. Minor
+   Smaller configurations files (i.e. =starship prompt=, =.profile=).
+2. Major
+   Bigger configuration files or sets of files (i.e. =Emacs=, =Window managers=).
+* Minor Configs
+** .profile
+#+begin_src shell :tangle .profile
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+#+end_src
+*** PATH
+#+begin_src shell :tangle .profile
+scripts="$HOME/scripts"
+export PATH="$PATH:$bin"
+#+end_src
+*** Variables
+#+begin_src shell :tangle .profile
+export EDITOR="emacsclient -c"
+export VISUAL="emacsclient -c"
+export ALTERNATE_EDITOR="vim"
+export CODE_EDITOR="emacsclient -c"
+export PAGER="less -IJQX"
+export TERMINAL="kitty"
+export BROWSER="firefoex"
+#+end_src
+** .bashrc
+*** Enable Vi mode
+#+begin_src shell :tangle .bashrc
+set -o vi
+#+end_src
+*** Load config files
+I am splitting my bash config into multiple smaller files for easier management. This for loop is used to load all those configuration files.
+#+begin_src shell :tangle .bashrc
+for f in ./.config/bash_config/*; do source "$f"; done
+#+end_src
+*** Enable starship prompt
+#+begin_src shell :tangle .bashrc
+eval "$(starship init bash)"
+#+end_src
+** bash config
+I wanted to avoid my =.bashrc= to became gigantic file that would be hard to manage, that is why I decided to split my bash config into multiple files and I'm sourcing them from my =.bashrc=.
+*** Git aliasses
+#+begin_src shell :tangle ./.config/bash_config/git
+alias g='git'
+alias gst='git status'
+alias gc='git commit'
+alias gnb='git checkout -b'
+alias gpl='git pull'
+alias gpu='git push'
+alias glg='git log --graph --decorate'
+alias gaa='git add .'
+alias gau='git add -u'
+#+end_src
+*** Pacman aliasses
+#+begin_src shell :tangle ./.config/bash_config/pacman
+alias pin='sudo pacman -S'
+alias prm='sudo pacman -R'
+alias pup='sudo pacman -Syu'
+alias prf='sudo pacman -Syy; sudo pacman -Fy'
+alias psr='pacman -F'
+#+end_src
+*** Application aliasses
+#+begin_src shell :tangle ./.config/bash_config/applications
+alias xb='xbacklight -set '
+alias rgrep='grep -r'
+#+end_src
+** starship
+#+begin_src TOML :tangle .config/starship.toml
+add_newline = true
+[line_break]
+disabled = false
+#+end_src
+** .gitconfig
+#+begin_src shell :tangle .gitconfig
+[init]
+	defaultBranch = main
+[user]
+	email = bragi.litlausson@protonmail.com
+	name = Bragi Litlausson
+[core]
+	editor = vim
+#+end_src
+* Major Configs
+** [[file:.config/kitty/kitty.org][Kitty terminal emulator]]
+** [[file:.config/picom/picom.org][picom]]
+** XMonad environment
+*** [[file:.xmonad/README.org][XMonad window manager]]
+*** [[file:.config/xmobar/README.org][XMobar]]
+** [[file:.config/rofi/README.org][rofi]]
+** [[file:.config/dunst/README.org][dunst]]
+** [[file:.doom.d/README.org][DOOM Emacs]]
 * License
 Distributed under the =0BSD= for more information go to =LICENSE= file.
+
 [[https://www.youtube.com/watch?v=5qacGULztuQ][TL;DR]]
 * Contact
 bragi.litlausson at proton mail

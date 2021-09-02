@@ -1,0 +1,44 @@
+#+TITLE: Readme
+#+begin_src haskell :tangle xmobarrc
+Config {
+    -- general behavior
+      lowerOnStart =     True    -- send to bottom of window stack on start
+    , hideOnStart =      False   -- start with window unmapped (hidden)
+    , allDesktops =      True    -- show on all desktops
+    , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
+    , pickBroadest =     False   -- choose widest display (multi-monitor)
+    , persistent =       True    -- enable/disable hiding (True = disabled)
+
+    -- appearance
+    , font =         "xft:JetBrainsMono Nerd Font:pixelsize=14:weight=bold:hinting=true:antialias=true"
+    , bgColor           ="#282a36"
+    , fgColor           = "#f8f8f2"
+    , position          = Top
+    , border            = BottomB
+    , borderWidth       = 4
+    , borderColor       =  "#44475a"
+
+    -- layout
+    , sepChar =  "%"   -- delineator between plugin names and straight text
+    , alignSep = "}{"  -- separator between left-right alignment
+    , template = " %StdinReader%}{ %updates% %date% %volume% %ac%"
+    ,commands = [
+        Run StdinReader
+        -- time and date indicator
+    --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
+        , Run Date           "<fc=#6272a4> %F %H:%M</fc>" "date" 100
+        , Run Volume "default" "Master"
+        [
+          "--template"      , "<fc=#6272a4><volume>%</fc><status>"
+            , "--"
+            , "--on"        , "蓼"
+            , "--onc"       , "#6272a4"
+            , "--off"       , "遼"
+            , "--offc"      , "#44475a"
+        ] 1
+    ]
+}
+#+end_src
+
+#+RESULTS:
+: <interactive>:39:1: error: parse error on input ‘}’

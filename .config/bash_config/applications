@@ -1,0 +1,2 @@
+alias xb='xbacklight -set '
+alias rgrep='grep -r'

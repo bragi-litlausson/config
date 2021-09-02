@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[user]
+	email = bragi.litlausson@protonmail.com
+	name = Bragi Litlausson
+[core]
+	editor = vim

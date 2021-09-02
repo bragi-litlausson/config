@@ -1,0 +1,26 @@
+#+title: ${1:Project Name}
+
+${4: Project Pitch}
+
+* Table of contents :TOC_3:
+- [[#1][$1]]
+- [[#about-the-project][About the project]]
+  - [[#built-with][Built with]]
+- [[#getting-started][Getting started]]
+- [[#usage][Usage]]
+- [[#license][License]]
+- [[#contact][Contact]]
+
+* About the project
+$0
+** Built with
+List of all major frameworks used in the project.
+* Getting started
+Instruction for setting up project locally.
+* Usage
+Examples of how project can be used.
+* License
+Distributed under the ${3: license} for more information go to =LICENSE=.
+* Contact
+${4: bragi.litlausson at proton mail}
+Project link https:github.com/bragi-litlausson/${2:reponame}

@@ -1,0 +1,5 @@
+alias pin='sudo pacman -S'
+alias prm='sudo pacman -R'
+alias pup='sudo pacman -Syu'
+alias prf='sudo pacman -Syy; sudo pacman -Fy'
+alias psr='pacman -F'

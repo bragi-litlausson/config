@@ -1,0 +1,39 @@
+;; you don't need to include all of them you can pick and mix
+(plist-put! +ligatures-extra-symbols
+  ;; org
+  :name          "»"
+  :src_block     "»"
+  :src_block_end "«"
+  :quote         "“"
+  :quote_end     "”"
+  ;; Functional
+  :lambda        "λ"
+  :def           "ƒ"
+  :composition   "∘"
+  :map           "map"
+  ;; Types
+  :null          "∅"
+  :true          "true"
+  :false         "false"
+  :int           "int"
+  :float         "float"
+  :str           "str"
+  :bool          "bool"
+  :list          "list"
+  ;; Flow
+  :not           "not"
+  :in            "∈"
+  :not-in        "∉"
+  :and           "∧"
+  :or            "∨"
+  :for           "∀"
+  :some          "∃"
+  :return        ""
+  :yield         ""
+  ;; Other
+  :union         "⋃"
+  :intersect     "∩"
+  :diff          "∖"
+  :tuple         "⨂"
+  :pipe          "|" ;; FIXME: find a non-private char
+  :dot           "•")  ;; you could also add your own if you want
